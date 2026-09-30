@@ -21,6 +21,16 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
+## Ejecutar con Docker
+
+```bash
+docker compose up --build
+```
+
+La API estará disponible en **http://localhost:8000** y la documentación en
+**http://localhost:8000/docs**. La base de datos SQLite se guarda en un volumen
+de Docker para conservar los datos al reiniciar el contenedor.
+
 ## Documentación interactiva
 
 Una vez corriendo, abre: **http://localhost:8000/docs**
