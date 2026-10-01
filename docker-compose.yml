@@ -2,7 +2,7 @@ services:
   api:
     build: .
     ports:
-      - "8000:8000"
+      - "5050:5050"
     environment:
       DATABASE_URL: sqlite:////app/data/inventario.db
     volumes:
@@ -12,7 +12,7 @@ services:
         - CMD
         - python
         - -c
-        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5050/health')"
       interval: 30s
       timeout: 5s
       retries: 3
