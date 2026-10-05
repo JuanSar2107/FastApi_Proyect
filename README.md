@@ -50,21 +50,39 @@ python seed.py
 
 ```
 app/
-├── main.py           # Punto de entrada FastAPI
-├── config.py         # Configuración (Pydantic Settings)
-├── database.py       # Sesión SQLAlchemy
-├── models.py         # Modelos ORM
-├── schemas.py        # Esquemas Pydantic (request/response)
-├── auth.py           # JWT, hashing, dependencias de seguridad
+├── main.py
+├── config.py
+├── database.py
+├── auth.py
+├── models/
+│   ├── __init__.py
+│   ├── user.py
+│   ├── category.py
+│   ├── supplier.py
+│   ├── product.py
+│   └── inventory_movement.py
+├── schemas/
+│   ├── __init__.py
+│   ├── auth.py
+│   ├── users.py
+│   ├── categories.py
+│   ├── suppliers.py
+│   ├── products.py
+│   ├── inventory.py
+│   └── reports.py
 └── routers/
-    ├── auth.py       # Login, registro, /me
-    ├── users.py      # CRUD usuarios (solo admin)
-    ├── categories.py # CRUD categorías
-    ├── suppliers.py  # CRUD proveedores
-    ├── products.py   # CRUD productos
-    ├── inventory.py  # Movimientos (entrada/salida/ajuste)
-    └── reports.py    # Reportes (stock bajo, resumen)
+    ├── auth.py
+    ├── users.py
+    ├── categories.py
+    ├── suppliers.py
+    ├── products.py
+    ├── inventory.py
+    └── reports.py
 ```
+
+Los modelos ORM y esquemas de validación están separados por entidad. Los imports
+existentes desde `app.models` y `app.schemas` se conservan mediante sus archivos
+`__init__.py`, por lo que las rutas y los scripts actuales no necesitan cambiar.
 
 ## Endpoints principales
 
