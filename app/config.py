@@ -9,13 +9,18 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "cambia-esta-clave-en-produccion"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 horas
-    # CORS settings - can be overridden via environment variable CORS_ORIGINS
-    CORS_ORIGINS: List[str] = [
-        "https://flutter.proyecto.lol",
-        "https://www.flutter.proyecto.lol",
-        "http://localhost:3000",
-        "http://localhost:8080",
-    ]
+    # Orígenes CORS permitidos, separados por comas (variable de entorno CORS_ORIGINS).
+    # No usar "*": allow_credentials=True lo hace inválido.
+    CORS_ORIGINS: str = (
+        "https://flutter.proyecto.lol,"
+        "https://www.flutter.proyecto.lol,"
+        "http://localhost:8044,"
+        "http://127.0.0.1:8044"
+    )
+
+    @property
+    def cors_origins_list(self) -> List[str]:
+        return [o.strip().rstrip("/") for o in self.CORS_ORIGINS.split(",") if o.strip()]
 
 
 settings = Settings()

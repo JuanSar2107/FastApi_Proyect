@@ -6,6 +6,8 @@ services:
     environment:
       - DATABASE_URL=sqlite:////app/data/inventario.db
       - PORT=${PORT:-5050}
+      # Orígenes CORS permitidos, separados por comas (sin "*")
+      - CORS_ORIGINS=${CORS_ORIGINS:-https://flutter.proyecto.lol,https://www.flutter.proyecto.lol,http://localhost:8044,http://127.0.0.1:8044}
     volumes:
       - inventory_data:/app/data
     healthcheck:
