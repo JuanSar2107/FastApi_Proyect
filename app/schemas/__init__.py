@@ -1,4 +1,11 @@
-from app.schemas.auth import LoginRequest, Token, TokenData
+from app.schemas.auth import (
+    ChangePasswordRequest,
+    LoginRequest,
+    ProfileUpdate,
+    ProfileUpdateResponse,
+    Token,
+    TokenData,
+)
 from app.schemas.categories import CategoryBase, CategoryCreate, CategoryResponse, CategoryUpdate
 from app.schemas.inventory import MovementCreate, MovementResponse
 from app.schemas.products import ProductBase, ProductCreate, ProductResponse, ProductUpdate, ProductWithRelations
@@ -7,7 +14,10 @@ from app.schemas.suppliers import SupplierBase, SupplierCreate, SupplierResponse
 from app.schemas.users import UserBase, UserCreate, UserResponse, UserUpdate
 
 __all__ = [
+    "ChangePasswordRequest",
     "LoginRequest",
+    "ProfileUpdate",
+    "ProfileUpdateResponse",
     "Token",
     "TokenData",
     "CategoryBase",
